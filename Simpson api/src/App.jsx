@@ -4,7 +4,14 @@ import axios from "axios";
 import SimpsonCard from "./Components/SimpsonCard";
 
 export default function App() {
-  const [simpson, setSimpson] = useState({});
+  
+  const sampleSimpson = {
+    image : "https://cdn.glitch.com/3c3ffadc-3406-4440-bb95-d40ec8fcde72%2FHomerSimpson.png?1497567511939",
+    name : "Homer Simpson",
+    quote : "I can't even say the word 'titmouse' without gigggling like a schoolgirl."
+  }
+
+  const [simpson, setSimpson] = useState(sampleSimpson);
 
   const getQuote = () => {
     axios
