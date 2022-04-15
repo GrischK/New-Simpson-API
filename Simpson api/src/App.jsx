@@ -4,7 +4,6 @@ import axios from "axios";
 import SimpsonCard from "./Components/SimpsonCard";
 
 export default function App() {
-  
   const [simpson, setSimpson] = useState({});
 
   const getQuote = () => {
@@ -12,16 +11,20 @@ export default function App() {
       .get("https://simpsons-quotes-api.herokuapp.com/quotes")
       .then((response) => {
         setSimpson(response.data[0]);
-        console.log(response.data)
+        console.log(response.data);
       });
-    };
+  };
 
   return (
-    <>
-      <SimpsonCard name={simpson.character} quote={simpson.quote} image={simpson.image}/>
+    <div className="block">
       <button type="button" onClick={getQuote}>
         Get new Simpson's character quote
       </button>
-    </>
+      <SimpsonCard
+        name={simpson.character}
+        quote={simpson.quote}
+        image={simpson.image}
+      />
+    </div>
   );
 }
